@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/NextPizza",
+  basePath: "/next-pizza",
   reactStrictMode: false,
   missingSuspenseWithCSRBailout: false,
 };
