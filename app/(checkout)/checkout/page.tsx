@@ -13,7 +13,7 @@ import {
 import { checkoutFormSchemas, TChectoutForm } from "@/shared/constants";
 import { cn } from "@/shared/lib/utils";
 import toast from "react-hot-toast";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { Api } from "@/shared/services/api-client";
 
@@ -87,41 +87,39 @@ export default function CheckoutPage() {
   };
 
   return (
-    <Suspense>
-      <Container className="mt-10 p-1 sm:p-4">
-        <Title
-          text="Оформлення замовлення"
-          className="font-extrabold mb-8 text-[36px]"
-        />
+    <Container className="mt-10 p-1 sm:p-4">
+      <Title
+        text="Оформлення замовлення"
+        className="font-extrabold mb-8 text-[36px]"
+      />
 
-        <FormProvider {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="flex gap-10 flex-col lg:flex-row">
-              <div className="flex flex-col gap-10 flex-1 xl:mb-20 ">
-                <CheckoutCart
-                  items={items}
-                  onClickCountButton={onClickCountButton}
-                  removeCartItem={removeCartItem}
-                  loading={loading}
-                />
-
-                <CheckoutPersonalForm
-                  className={cn({ "opacity-40 pointer-evens-none": loading })}
-                />
-
-                <CheackoutAddressForm
-                  className={cn({ "opacity-40 pointer-evens-none": loading })}
-                />
-              </div>
-              <CheckoutSidebar
-                totalAmount={totalAmount}
+      <FormProvider {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="flex gap-10 flex-col lg:flex-row">
+            <div className="flex flex-col gap-10 flex-1 xl:mb-20 ">
+              <CheckoutCart
+                items={items}
+                onClickCountButton={onClickCountButton}
+                removeCartItem={removeCartItem}
                 loading={loading}
-                submiting={submiting}
+              />
+
+              <CheckoutPersonalForm
+                className={cn({ "opacity-40 pointer-evens-none": loading })}
+              />
+
+              <CheackoutAddressForm
+                className={cn({ "opacity-40 pointer-evens-none": loading })}
               />
             </div>
-          </form>
-        </FormProvider>
-      </Container>
-    </Suspense>
+            <CheckoutSidebar
+              totalAmount={totalAmount}
+              loading={loading}
+              submiting={submiting}
+            />
+          </div>
+        </form>
+      </FormProvider>
+    </Container>
   );
 }

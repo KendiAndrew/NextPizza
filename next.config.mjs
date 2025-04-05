@@ -2,6 +2,7 @@
 const nextConfig = {
   basePath: "/NextPizza",
   reactStrictMode: false,
+  missingSuspenseWithCSRBailout: false,
 };
 
 export default nextConfig;
