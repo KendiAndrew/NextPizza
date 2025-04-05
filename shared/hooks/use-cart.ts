@@ -1,4 +1,3 @@
-import { addCartItem } from "./../services/cart";
 import React from "react";
 import { useCartStore } from "../store/cart";
 import { CreateCartItemValues } from "@/dto/cart.dto";
