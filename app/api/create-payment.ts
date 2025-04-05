@@ -19,7 +19,7 @@ export async function createPayment({
     version: "3",
     public_key: LIQPAY_PUBLIC_KEY,
     action: "pay",
-    amount: totalAmount.toFixed(2) + 60,
+    amount: (totalAmount + 60).toFixed(2),
     currency: "UAH",
     description: comment || `Оплата за замовлення №${orderId}`,
     order_id: orderId,
