@@ -30,7 +30,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
   };
 
   return (
-    <div className={cn("lg:relative", className)}>
+    <div className={cn("lg:relative lg:z-10", className)}>
       <div
         onClick={() => setOpen(!open)}
         className={cn(
@@ -46,7 +46,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           "bg-white transition-transform duration-300 relative bottom-[30px] lg:bottom-0 lg:translate-x-[0px]",
           open
             ? "translate-x-[0px] z-[5]"
-            : "translate-x-[-350px] pointer-events-none",
+            : "translate-x-[-350px] pointer-events-none lg:pointer-events-auto",
           className
         )}
       >

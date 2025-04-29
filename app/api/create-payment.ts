@@ -40,7 +40,5 @@ export async function createPayment({
     dataEncoded
   )}&signature=${encodeURIComponent(signature)}`;
 
-  console.log("✅ Посилання на оплату створено:", paymentUrl);
-
   return paymentUrl;
 }
